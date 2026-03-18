@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "username": "John Doe",
+      "email": "haimanot@gmail.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "u2",
+      "username": "Jane Smith",
+      "email": "jane@gmail.com",
+      "password": "abcdef",
+      "role": "user"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "13",
+      "title": "Client Feedback",
+      "description": "Review and respond to client feedback emails",
+      "category": "work",
+      "dueDate": "2025-12-28",
+      "status": "completed",
+      "order": 1,
+      "userId": "u2"
+    },
+    {
+      "id": "6304",
+      "title": "I will start learning saa",
+      "description": "saas is software as a s3ervice",
+      "category": "study",
+      "dueDate": "2025-02-10",
+      "status": "not completed",
+      "order": 4
+    },
+    {
+      "id": "50a5",
+      "title": "I will start learning saa",
+      "description": "saas is software as a s3ervice",
+      "category": "study",
+      "dueDate": "2025-02-10",
+      "status": "not completed",
+      "order": 5
+    }
+  ]
+}

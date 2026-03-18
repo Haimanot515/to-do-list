@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do Master</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Boost Your Productivity</h1>
+      <p>Manage your tasks efficiently and stay organized.</p>
+      <div class="hero-buttons">
+        <a href="addTask.html" class="btn-primary">Add Your Task</a>
+        <a href="#features" class="btn-secondary">Learn More</a>
+        <a href="#" class="btn-tertiary">Download App</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Tasks Illustration">
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features" id="features">
+    <div class="feature-card">
+      <h3>✅ Add Tasks</h3>
+      <p>Easily add new tasks with due dates and categories.</p>
+      <a href="addTask.html" class="feature-link">Add Now</a>
+    </div>
+    <div class="feature-card">
+      <h3>✏ Edit Tasks</h3>
+      <p>Update your tasks anytime to stay on track.</p>
+      <a href="editTask.html" class="feature-link">Edit</a>
+    </div>
+    <div class="feature-card">
+      <h3>🗑 Delete Tasks</h3>
+      <p>Remove tasks that are completed or irrelevant.</p>
+      <a href="deleteTask.html" class="feature-link">Delete</a>
+    </div>
+    <div class="feature-card">
+      <h3>↕ Sort & Filter</h3>
+      <p>Sort tasks by due date and filter by category for better management.</p>
+      <a href="tasks.html" class="feature-link">Sort/Filter</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / PEOPLE SAY -->
+  <section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>“Simple, straightforward, and super powerful.”</p>
+        <strong>- The Verge</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>“The best to-do list app on the market.”</p>
+        <strong>- PC Magazine</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>“Nothing short of stellar.”</p>
+        <strong>- TechRadar</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script src="app.js"></script>
+  <script>
+    // Load Navbar and Footer dynamically
+    fetch('navbar.html').then(res => res.text()).then(data => document.getElementById('navbar').innerHTML = data);
+    fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>

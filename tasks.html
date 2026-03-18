@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks Dashboard - To-Do Master</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- Sortable.js for drag-and-drop -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<div class="container">
+  <h1>All Tasks</h1>
+  <input type="text" id="searchInput" placeholder="Search tasks..." class="search-input">
+  <div id="todos" class="articles"></div>
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<!-- Footer -->
+<div id="footer"></div>
+
+<script src="app.js"></script>
+<script>
+  // Load Navbar
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+      if (typeof setupNavbar === 'function') setupNavbar();
+    });
+
+  // Load Footer
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+</body>
+</html>

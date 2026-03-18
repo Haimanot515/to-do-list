@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Master - Team</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-left">
+    <h2>To-Do Master</h2>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tasks.html">Tasks</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="team-section">
+  <h1>Team Members</h1>
+
+  <div class="add-member-form">
+    <input type="text" id="memberName" placeholder="Name">
+    <input type="email" id="memberEmail" placeholder="Email">
+    <input type="text" id="memberRole" placeholder="Role">
+    <button id="addMemberBtn">Add Member</button>
+  </div>
+
+  <div id="teamList" class="team-list"></div>
+</section>
+
+<script>
+const api = 'http://localhost:3000/team';
+
+document.addEventListener('DOMContentLoaded', () => {
+  protectPage(); // Auth check
+  loadTeam();
+});
+
+// Load team members
+async function loadTeam() {
+  const res = await fetch(api);
+  const team = await res.json();
+  const container = document.getElementById('teamList');
+  container.innerHTML = '';
+  team.forEach(member => {
+    container.innerHTML += `
+      <div class="team-card">
+        <h3>${member.name}</h3>
+        <p>Email: ${member.email}</p>
+        <p>Role: ${member.role}</p>
+        <button onclick="editMember('${member.id}')">Edit</button>
+        <button onclick="deleteMember('${member.id}')">Delete</button>
+      </div>
+    `;
+  });
+}
+
+// Add member
+document.getElementById('addMemberBtn').addEventListener('click', async () => {
+  const name = document.getElementById('memberName').value;
+  const email = document.getElementById('memberEmail').value;
+  const role = document.getElementById('memberRole').value;
+
+  if (!name || !email || !role) return alert('All fields are required');
+
+  await fetch(api, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({id: Date.now().toString(), name, email, role})
+  });
+
+  document.getElementById('memberName').value = '';
+  document.getElementById('memberEmail').value = '';
+  document.getElementById('memberRole').value = '';
+  loadTeam();
+});
+
+// Edit member
+async function editMember(id) {
+  const name = prompt("New name:");
+  const email = prompt("New email:");
+  const role = prompt("New role:");
+
+  if (!name || !email || !role) return;
+
+  await fetch(`${api}/${id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({id, name, email, role})
+  });
+  loadTeam();
+}
+
+// Delete member
+async function deleteMember(id) {
+  await fetch(`${api}/${id}`, { method: 'DELETE' });
+  loadTeam();
+}
+</script>
+<script src="auth.js"></script>
+</body>
+</html>

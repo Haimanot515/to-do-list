@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Task - To Do Master</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="form" id="addTask">
+    <h2>Add a New Task</h2>
+    <input id="title" placeholder="Title">
+    <input id="description" placeholder="Description">
+    <input id="category" placeholder="Category">
+    <input id="dueDate" type="date">
+    <button id="addBtn" type="button">Add Task</button>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load Navbar
+      fetch('navbar.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
+          if (typeof setupNavbar === 'function') setupNavbar();
+        });
+
+      // Load Footer
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+
+      // Initialize Add Task
+      if (typeof setupAddTask === 'function') setupAddTask();
+    });
+  </script>
+</body>
+</html>

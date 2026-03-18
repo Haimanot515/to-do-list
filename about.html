@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - To-Do Master</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR include -->
+<div id="navbar"></div>
+
+<!-- ABOUT CONTENT -->
+<section class="about-page">
+  <div class="container">
+    <h1>About To-Do Master</h1>
+    <p>To-Do Master is designed to help you stay organized, manage your tasks efficiently, and improve your productivity. Our app allows you to add, edit, delete, sort, and filter tasks seamlessly.</p>
+    <p>We believe that organization is key to success. That's why we've built a platform that is simple, fast, and accessible from anywhere.</p>
+    <h2>Features Overview</h2>
+    <ul>
+      <li>Add, Edit, Delete tasks</li>
+      <li>Sort tasks by due date</li>
+      <li>Filter tasks by category</li>
+      <li>Task Templates for fast organization</li>
+      <li>Team collaboration (coming soon)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER include -->
+<div id="footer"></div>
+
+<script src="app.js"></script>
+<script>
+  // Include navbar and footer
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(data => { document.getElementById('navbar').innerHTML = data; });
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => { document.getElementById('footer').innerHTML = data; });
+</script>
+</body>
+</html>

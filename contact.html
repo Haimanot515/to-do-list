@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - To-Do Master</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR include -->
+<div id="navbar"></div>
+
+<!-- CONTACT FORM -->
+<section class="contact-page">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, suggestions, or feedback, feel free to reach out!</p>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="contactFeedback" style="margin-top:10px;"></p>
+  </div>
+</section>
+
+<!-- FOOTER include -->
+<div id="footer"></div>
+
+<script src="app.js"></script>
+<script>
+  // Include navbar and footer
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(data => { document.getElementById('navbar').innerHTML = data; });
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => { document.getElementById('footer').innerHTML = data; });
+
+  // Simple contact form feedback
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('contactFeedback').innerText = "Thank you! Your message has been sent.";
+    this.reset();
+  });
+</script>
+</body>
+</html>

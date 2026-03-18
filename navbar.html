@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Master - Tasks</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2>To-Do Master</h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tasks.html" onclick="loadTodos()">View Tasks</a></li>
+
+        <li class="dropdown">
+          <a href="#">Manage Tasks ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="addTask.html">Add Task</a></li>
+            <li><a href="tasks.html">Edit Task</a></li>
+            <li><a href="tasks.html">Delete Task</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Team ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Team Dashboard</a></li>
+            <li><a href="#">Add Members</a></li>
+            <li><a href="#">Manage Roles</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">More ▾</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-sub">
+              <a href="#">Sort Tasks ▸</a>
+              <ul class="sub-menu">
+                <li><a href="#" onclick="sortByDue('asc')">Due Date ↑</a></li>
+                <li><a href="#" onclick="sortByDue('desc')">Due Date ↓</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-sub">
+              <a href="#">Filter by Category ▸</a>
+              <ul class="sub-menu">
+                <li><a href="#" onclick="filterCategory('')">All</a></li>
+                <li><a href="#" onclick="filterCategory('personal')">Personal</a></li>
+                <li><a href="#" onclick="filterCategory('study')">Study</a></li>
+                <li><a href="#" onclick="filterCategory('work')">Work</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-center">
+      <div class="search-wrapper">
+        <!-- FIX: id changed to match app.js -->
+        <input type="text" id="searchInput" placeholder="Search tasks...">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button id="themeToggle">🌙</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+
+  <script src="app.js"></script>
+</body>
+</html>

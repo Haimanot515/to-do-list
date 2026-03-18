@@ -1,0 +1,30 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# Dependency folders (if you later add npm tools)
+node_modules/
+
+# Build / dist folders
+dist/
+build/
+
+# Cache files
+.cache/
+.parcel-cache/
+
+# Optional: package lock files (usually keep these if using npm)
+# package-lock.json
+# yarn.lock
